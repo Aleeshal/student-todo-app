@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Todo App</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; }
+        input[type=text] { width: 70%; padding: 8px; }
+        button { padding: 8px 16px; background: #007bff; color: white; border: none; cursor: pointer; }
+        ul { list-style: none; padding: 0; }
+        li { padding: 10px; margin: 5px 0; background: #f4f4f4; display: flex; justify-content: space-between; }
+        a { color: red; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h2>Student Todo App</h2>
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Enter a task..." required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for todo in todos %}
+        <li>{{ todo[1] }} <a href="/delete/{{ todo[0] }}"> Delete</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
